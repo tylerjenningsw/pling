@@ -2,7 +2,7 @@
   "infiniteLoopProtection": true,
   "hardReloadOnChange": false,
   "view": "browser",
-  "template": "node",
+  "template": "vite-react",
   "container": {
     "node": "18",
     "port": 5173
