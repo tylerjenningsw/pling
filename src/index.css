@@ -1,0 +1,229 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #007AFF;
+  --color-primary-hover: #0051D5;
+  --color-primary-light: #409CFF;
+  
+  --color-accent: #FDB94E;
+  --color-accent-light: #FFD700;
+  --color-accent-dark: #F5A623;
+  
+  --color-gray-50: #F2F2F7;
+  --color-gray-100: #E5E5EA;
+  --color-gray-200: #C7C7CC;
+  --color-gray-300: #A9A9B0;
+  --color-gray-400: #9B9BA3;
+  --color-gray-500: #8E8E93;
+  --color-gray-600: #636366;
+  --color-gray-700: #48484A;
+  --color-gray-800: #363638;
+  --color-gray-900: #1C1C1E;
+  
+  --color-success: #34C759;
+  --color-warning: #FF9500;
+  --color-error: #FF3B30;
+  
+  --color-background-light: #FFFFFF;
+  --color-background-dark: #000000;
+  
+  --font-family-sans: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  
+  /* iOS-compliant typography sizes */
+  --font-size-large-title: 34px;
+  --line-height-large-title: 41px;
+  --font-weight-large-title: 700;
+  
+  --font-size-title-1: 28px;
+  --line-height-title-1: 34px;
+  --font-weight-title-1: 700;
+  
+  --font-size-title-2: 22px;
+  --line-height-title-2: 28px;
+  --font-weight-title-2: 700;
+  
+  --font-size-title-3: 20px;
+  --line-height-title-3: 25px;
+  --font-weight-title-3: 600;
+  
+  --font-size-body: 17px;
+  --line-height-body: 22px;
+  --font-weight-body: 400;
+  
+  --font-size-callout: 16px;
+  --line-height-callout: 21px;
+  --font-weight-callout: 400;
+  
+  --font-size-subheadline: 15px;
+  --line-height-subheadline: 20px;
+  --font-weight-subheadline: 400;
+  
+  --font-size-footnote: 13px;
+  --line-height-footnote: 18px;
+  --font-weight-footnote: 400;
+  
+  --font-size-caption: 12px;
+  --line-height-caption: 16px;
+  --font-weight-caption: 400;
+  
+  /* Legacy naming for compatibility */
+  --font-size-heading-1: 28px;
+  --line-height-heading-1: 34px;
+  --font-weight-heading-1: 700;
+  
+  --font-size-heading-2: 22px;
+  --line-height-heading-2: 28px;
+  --font-weight-heading-2: 700;
+  
+  --font-size-heading-3: 20px;
+  --line-height-heading-3: 25px;
+  --font-weight-heading-3: 600;
+  
+  --font-size-body-small: 15px;
+  --line-height-body-small: 20px;
+  --font-weight-body-small: 400;
+  
+  --radius-ios: 12px;
+  --radius-ios-lg: 16px;
+  --radius-ios-btn: 12px;
+  --radius-ios-card: 20px;
+  
+  --shadow-ios: 0 3px 8px rgba(0, 0, 0, 0.12), 0 3px 1px rgba(0, 0, 0, 0.04);
+  --shadow-ios-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
+  --shadow-ios-active: 0 0 0 4px rgba(0, 122, 255, 0.15);
+  
+  --spacing-safe-top: env(safe-area-inset-top);
+  --spacing-safe-bottom: env(safe-area-inset-bottom);
+}
+
+@layer base {
+  html {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    @apply antialiased;
+  }
+
+  /* iOS-style focus states */
+  *:focus {
+    outline: none;
+  }
+
+  *:focus-visible {
+    @apply ring-2 ring-primary ring-offset-2;
+  }
+}
+
+@layer components {
+  /* Reusable component styles */
+  .btn-primary {
+    @apply bg-primary text-white rounded-[var(--radius-ios-btn)] px-6 py-3 font-medium text-[length:var(--font-size-body)] transition-all duration-200 hover:bg-primary-hover active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .card-selectable {
+    @apply bg-white rounded-[var(--radius-ios-card)] p-4 border-2 border-gray-100 transition-all duration-200 hover:border-gray-200 cursor-pointer;
+  }
+
+  .card-selected {
+    @apply border-accent bg-accent/10;
+  }
+}
+
+@layer utilities {
+  /* Custom utilities */
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  /* Typography utilities */
+  .text-large-title {
+    font-size: var(--font-size-large-title);
+    line-height: var(--line-height-large-title);
+    font-weight: var(--font-weight-large-title);
+  }
+  
+  .text-title-1 {
+    font-size: var(--font-size-title-1);
+    line-height: var(--line-height-title-1);
+    font-weight: var(--font-weight-title-1);
+  }
+  
+  .text-title-2 {
+    font-size: var(--font-size-title-2);
+    line-height: var(--line-height-title-2);
+    font-weight: var(--font-weight-title-2);
+  }
+  
+  .text-title-3 {
+    font-size: var(--font-size-title-3);
+    line-height: var(--line-height-title-3);
+    font-weight: var(--font-weight-title-3);
+  }
+  
+  .text-body {
+    font-size: var(--font-size-body);
+    line-height: var(--line-height-body);
+    font-weight: var(--font-weight-body);
+  }
+  
+  .text-callout {
+    font-size: var(--font-size-callout);
+    line-height: var(--line-height-callout);
+    font-weight: var(--font-weight-callout);
+  }
+  
+  .text-subheadline {
+    font-size: var(--font-size-subheadline);
+    line-height: var(--line-height-subheadline);
+    font-weight: var(--font-weight-subheadline);
+  }
+  
+  .text-footnote {
+    font-size: var(--font-size-footnote);
+    line-height: var(--line-height-footnote);
+    font-weight: var(--font-weight-footnote);
+  }
+  
+  .text-caption {
+    font-size: var(--font-size-caption);
+    line-height: var(--line-height-caption);
+    font-weight: var(--font-weight-caption);
+  }
+  
+  /* Legacy compatibility */
+  .text-heading-1 {
+    font-size: var(--font-size-heading-1);
+    line-height: var(--line-height-heading-1);
+    font-weight: var(--font-weight-heading-1);
+  }
+  
+  .text-heading-2 {
+    font-size: var(--font-size-heading-2);
+    line-height: var(--line-height-heading-2);
+    font-weight: var(--font-weight-heading-2);
+  }
+  
+  .text-heading-3 {
+    font-size: var(--font-size-heading-3);
+    line-height: var(--line-height-heading-3);
+    font-weight: var(--font-weight-heading-3);
+  }
+  
+  .text-body-small {
+    font-size: var(--font-size-body-small);
+    line-height: var(--line-height-body-small);
+    font-weight: var(--font-weight-body-small);
+  }
+  
+  /* Safe area utilities for iOS devices */
+  .pb-safe {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+  
+  .pt-safe {
+    padding-top: env(safe-area-inset-top);
+  }
+}
